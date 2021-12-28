@@ -76,8 +76,10 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
 
   -- snips
-  use 'saadparwaiz1/cmp_luasnip'
-
+  use {
+    'saadparwaiz1/cmp_luasnip',
+    requires = { 'L3MON4D3/LuaSnip' }
+  }
   -- completion formatting
   use 'onsails/lspkind-nvim'
 
