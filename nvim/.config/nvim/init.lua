@@ -1,6 +1,7 @@
 require('plugins')
 require('keymappings')
-require('settings')
 require('nvim-comp')
 require('lsp')
 require('custom')
+require('settings')
+require('treesitter')
