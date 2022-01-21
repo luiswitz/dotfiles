@@ -86,6 +86,9 @@ return require('packer').startup(function(use)
   -- colors
   use 'tjdevries/colorbuddy.nvim'
 
+  -- emmet
+  use 'mattn/emmet-vim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   --if packer_bootstrap then
