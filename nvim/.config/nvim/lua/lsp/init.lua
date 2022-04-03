@@ -4,7 +4,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap=true, silent=true }
 end
 
-local servers = { 'tsserver', 'ember', 'eslint', 'html' }
+local servers = { 'tsserver', 'ember', 'eslint', 'html', 'tailwindcss' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
