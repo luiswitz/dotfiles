@@ -89,6 +89,10 @@ return require('packer').startup(function(use)
   -- emmet
   use 'mattn/emmet-vim'
 
+  -- tailwind class sorter
+  -- TODO: check how to use it
+  -- use 'steelsojka/headwind.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   --if packer_bootstrap then
