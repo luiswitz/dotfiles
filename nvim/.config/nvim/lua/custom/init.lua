@@ -26,6 +26,22 @@ custom.rubocop = function()
   vim.cmd(command)
 end
 
+-- general lint function
+custom.format = function()
+  local file_type = vim.bo.filetype
+  local file_name = vim.api.nvim_buf_get_name(0)
+
+  if file_type == "ruby" or file_type == "rspec.ruby" then
+    custom.rubocop()
+  elseif file_type == "html.handlebars" then
+    vim.lsp.buf.formatting_sync()
+    local command = '!rustywind --write %'
+    vim.cmd(command)
+  else
+    vim.lsp.buf.formatting_sync()
+  end
+end
+
 -- runs current file in a terminal tab
 custom.execute_file = function()
   local file_name = vim.api.nvim_buf_get_name(0)

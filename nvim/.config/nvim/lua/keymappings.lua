@@ -60,8 +60,8 @@ vim.api.nvim_set_keymap('n', '<Leader>gc', ':Neogit<CR>', { noremap = true, sile
 -- execute file
 vim.api.nvim_set_keymap('n', '<Leader>e', ':lua require(\'custom\').execute_file()<CR>', { noremap = true, silent = true })
 
--- rubocop lint
-vim.api.nvim_set_keymap('n', '<Leader>cs', ':lua require(\'custom\').rubocop()<CR>', { noremap = true, silent = true})
+-- lint
+vim.api.nvim_set_keymap('n', '<Leader>cs', ':lua require(\'custom\').format()<CR>', { noremap = true, silent = true})
 
 -- search dotfiles
 vim.api.nvim_set_keymap('n', '<Leader>df', ':lua require(\'custom\').search_dotfiles()<CR>', { noremap = true, silent = true})
