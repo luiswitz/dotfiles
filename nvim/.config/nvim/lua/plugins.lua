@@ -89,6 +89,8 @@ return require('packer').startup(function(use)
   -- emmet
   use 'mattn/emmet-vim'
 
+  use 'jose-elias-alvarez/null-ls.nvim'
+
   -- tailwind class sorter
   -- TODO: check how to use it
   -- use 'steelsojka/headwind.nvim'
