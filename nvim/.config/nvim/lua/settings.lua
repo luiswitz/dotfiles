@@ -9,6 +9,7 @@ set.softtabstop = 2
 set.expandtab = true
 set.number = true
 set.clipboard = 'unnamed'
+set.autoread = true
 
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
