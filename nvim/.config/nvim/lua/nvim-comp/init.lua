@@ -3,6 +3,8 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -16,10 +18,12 @@ cmp.setup({
 	},
 
 	mapping = {
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-e>"] = cmp.mapping.close(),
-		["<c-y>"] = cmp.mapping(
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+		["<c-b>"] = cmp.mapping.scroll_docs(-4),
+		["<c-f>"] = cmp.mapping.scroll_docs(4),
+		["<c-e>"] = cmp.mapping.close(),
+		["<cr>"] = cmp.mapping(
 			cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Insert,
 				select = true,
