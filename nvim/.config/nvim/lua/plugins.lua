@@ -15,14 +15,10 @@ return require("packer").startup(function(use)
 	-- plugin manager
 	use("wbthomason/packer.nvim")
 	-- file explorer
-	use({
-		"kyazdani42/nvim-tree.lua",
+	use({ "kyazdani42/nvim-tree.lua",
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icon
 		},
-		config = function()
-			require("nvim-tree").setup({})
-		end,
 	})
 	-- fuzzy finder
 	use({
@@ -50,6 +46,8 @@ return require("packer").startup(function(use)
 	-- colorshceme
 	use("folke/tokyonight.nvim")
 	use("marko-cerovac/material.nvim")
+  use 'navarasu/onedark.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- better ember hbs highlight
 	use("joukevandermaas/vim-ember-hbs")
@@ -73,6 +71,9 @@ return require("packer").startup(function(use)
 			require("nvim-autopairs").setup({})
 		end,
 	})
+
+  -- editorconfig.org
+  use("editorconfig/editorconfig-vim")
 
 	-- lsp
 	use("neovim/nvim-lspconfig")
@@ -99,6 +100,31 @@ return require("packer").startup(function(use)
 	use("mattn/emmet-vim")
 
 	use("jose-elias-alvarez/null-ls.nvim")
+
+  use("whatsthatsmell/codesmell_dark.vim")
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v2.*",
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+
+  use 'famiu/bufdelete.nvim'
+
+  -- sql LSP
+  use 'nanotee/sqls.nvim'
+
+  use 'christoomey/vim-tmux-navigator'
+
+  -- floaterm
+  use 'voldikss/vim-floaterm'
+
+  use 'kdheepak/lazygit.nvim'
 
 	-- tailwind class sorter
 	-- TODO: check how to use it

@@ -11,11 +11,11 @@ set.number = true
 set.clipboard = "unnamed"
 set.autoread = true
 
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_terminal_colors = true
-vim.g.tokyonight_italic_variables = true
-vim.g.tokyonight_lualine_bold = true
+-- vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_italic_functions = true
+-- vim.g.tokyonight_terminal_colors = true
+-- vim.g.tokyonight_italic_variables = true
+-- vim.g.tokyonight_lualine_bold = true
 
 -- set colorscheme
 cmd([[
@@ -23,5 +23,6 @@ cmd([[
   syntax on
   set noswapfile
   autocmd BufNewFile,BufRead *_spec.rb set syntax=rspec 
-  colorscheme tokyonight
 ]])
+
+vim.cmd.colorscheme "catppuccin"
