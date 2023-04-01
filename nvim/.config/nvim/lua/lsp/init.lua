@@ -1,6 +1,5 @@
 local nvim_lsp = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-local navic = require("nvim-navic")
 
 vim.lsp.set_log_level("debug")
 
@@ -22,11 +21,6 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	vim.api.nvim_set_keymap("n", "<Leader>cs", ":lua vim.lsp.buf.format()<CR>", opts)
-	vim.api.nvim_set_keymap("n", "<Leader>ld", ":lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>", opts)
-
-  if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client, bufnr)
-  end
 end
 
 local servers = { "tsserver", "ember", "eslint", "html", "tailwindcss", "rust_analyzer", "solargraph", "sqls" }

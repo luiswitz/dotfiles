@@ -108,11 +108,11 @@ return require("packer").startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  use {
-    'akinsho/bufferline.nvim',
-    tag = "v2.*",
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
+  -- use {
+  --   'akinsho/bufferline.nvim',
+  --   tag = "v2.*",
+  --   requires = 'kyazdani42/nvim-web-devicons'
+  -- }
 
   use 'famiu/bufdelete.nvim'
 
@@ -126,39 +126,11 @@ return require("packer").startup(function(use)
 
   use 'kdheepak/lazygit.nvim'
 
-  -- A simple statusline/winbar component that uses LSP to show your current code context.
-  use {
-    "SmiteshP/nvim-navic",
-    requires = "neovim/nvim-lspconfig"
-  }
-
-  -- better lsp diagnostics UI
-  use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-        require("lspsaga").setup({})
-    end,
-    requires = {
-        {"nvim-tree/nvim-web-devicons"},
-        --Please make sure you install markdown and markdown_inline parser
-        {"nvim-treesitter/nvim-treesitter"}
-    }
-  })
-
-  -- better UI for tabs
-  use 'nanozuki/tabby.nvim'
-
   -- LSP manager
   use 'williamboman/mason.nvim'
 
-	-- tailwind class sorter
-	-- TODO: check how to use it
-	-- use 'steelsojka/headwind.nvim'
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	--if packer_bootstrap then
-	--  require('packer').sync()
-	--end
+  use { 
+    'ThePrimeagen/harpoon',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
 end)
