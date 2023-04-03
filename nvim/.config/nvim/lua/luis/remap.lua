@@ -35,3 +35,13 @@ vim.keymap.set("n", ";", ":")
 
 -- easy search
 vim.keymap.set("n", "<Leader>f", "<ESC>/")
+
+-- open alt file
+vim.keymap.set("n", "<leader>av", function()
+  AltFile()
+end)
+
+-- execute a file
+vim.keymap.set("n", "<leader>e", function()
+  ExecuteFile()
+end)
