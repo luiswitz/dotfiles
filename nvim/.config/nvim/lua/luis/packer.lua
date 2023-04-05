@@ -55,4 +55,6 @@ return require('packer').startup(function(user)
   use("mattn/emmet-vim")
 
   use("vim-test/vim-test")
+
+  use("folke/zen-mode.nvim")
 end)
