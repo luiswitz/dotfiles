@@ -57,4 +57,8 @@ return require('packer').startup(function(user)
   use("vim-test/vim-test")
 
   use("folke/zen-mode.nvim")
+
+  use('christoomey/vim-tmux-navigator')
+
+  use('windwp/nvim-autopairs')
 end)
