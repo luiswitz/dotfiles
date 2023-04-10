@@ -61,4 +61,6 @@ return require('packer').startup(function(user)
   use('christoomey/vim-tmux-navigator')
 
   use('windwp/nvim-autopairs')
+
+  use('lewis6991/gitsigns.nvim')
 end)
