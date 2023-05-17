@@ -16,7 +16,11 @@ return require('packer').startup(function(user)
     end
   })
 
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use({
+    'nvim-treesitter/nvim-treesitter',
+    requires = {'nvim-treesitter/playground'},
+    { run = ':TSUpdate' }
+  })
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
@@ -43,6 +47,8 @@ return require('packer').startup(function(user)
     }
   }
 
+  use({"shortcuts/no-neck-pain.nvim", tag = "*" })
+
   -- Makes argument formatting easier
 	use("FooSoft/vim-argwrap")
 
@@ -56,11 +62,11 @@ return require('packer').startup(function(user)
 
   use("vim-test/vim-test")
 
-  use("folke/zen-mode.nvim")
-
   use('christoomey/vim-tmux-navigator')
 
   use('windwp/nvim-autopairs')
 
   use('lewis6991/gitsigns.nvim')
+
+  use("/home/luis/code/neovim-plugins/ember_test")
 end)
