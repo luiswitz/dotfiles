@@ -69,4 +69,8 @@ return require('packer').startup(function(user)
   use('lewis6991/gitsigns.nvim')
 
   use("/home/luis/code/neovim-plugins/ember_test")
+
+  use("rktjmp/lush.nvim")
+  use("metalelf0/jellybeans-nvim")
+  use('projekt0n/github-nvim-theme')
 end)
