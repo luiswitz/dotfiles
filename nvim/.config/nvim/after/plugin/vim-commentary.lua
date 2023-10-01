@@ -1,0 +1,3 @@
+-- vim.cmd([[
+--   autocmd FileType handlebars setlocal commentstring={{!-- \ %s --}}
+-- ]])

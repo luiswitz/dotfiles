@@ -7,7 +7,7 @@ return require('packer').startup(function(user)
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-
+  use { 'nvim-telescope/telescope-media-files.nvim' }
   use({
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -18,7 +18,7 @@ return require('packer').startup(function(user)
 
   use({
     'nvim-treesitter/nvim-treesitter',
-    requires = {'nvim-treesitter/playground'},
+    requires = { 'nvim-treesitter/playground' },
     { run = ':TSUpdate' }
   })
   use('nvim-treesitter/playground')
@@ -43,14 +43,18 @@ return require('packer').startup(function(user)
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },     -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
+      {
+        'L3MON4D3/LuaSnip',
+        version = '2.0.0',
+        run = 'make install_jsregexp'
+      },
     }
   }
 
-  use({"shortcuts/no-neck-pain.nvim", tag = "*" })
+  use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 
   -- Makes argument formatting easier
-	use("FooSoft/vim-argwrap")
+  use("FooSoft/vim-argwrap")
 
   -- easy comments
   use("tpope/vim-commentary")
@@ -73,4 +77,8 @@ return require('packer').startup(function(user)
   use("rktjmp/lush.nvim")
   use("metalelf0/jellybeans-nvim")
   use('projekt0n/github-nvim-theme')
+  use("rebelot/kanagawa.nvim")
+  use("chriskempson/base16-vim")
+  use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
+  use('arzg/vim-colors-xcode')
 end)

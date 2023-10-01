@@ -1,0 +1,51 @@
+import = ["/home/luis/.config/alacritty/themes/themes/tomorrow_night.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+blink_interval = 600
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"
+
+[font]
+size = 10.5
+
+[font.bold]
+family = "Source Code Pro"
+style = "Bold"
+
+[font.bold_italic]
+family = "Source Code Pro"
+style = "Bold Italic"
+
+[font.italic]
+family = "Source Code Pro"
+style = "Italic"
+
+[font.normal]
+family = "Source Code Pro"
+style = "Medium"
+
+[[keyboard.bindings]]
+chars = "\u001E"
+key = "Key6"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key9"
+mods = "Command"
+
+[scrolling]
+history = 10000
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+decorations = "Full"
+dynamic_padding = true
+startup_mode = "Maximized"
