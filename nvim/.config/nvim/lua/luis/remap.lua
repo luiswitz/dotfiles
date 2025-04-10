@@ -38,7 +38,7 @@ vim.keymap.set("n", "<Leader>f", "<ESC>/")
 
 -- open alt file
 vim.keymap.set("n", "<leader>av", function()
-  AltFile()
+  alt_test_file()
 end)
 
 -- execute a file
