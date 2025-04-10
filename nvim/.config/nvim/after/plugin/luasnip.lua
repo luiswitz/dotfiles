@@ -39,6 +39,8 @@ ls.add_snippets("lua", {
 
 ls.add_snippets("ruby", {
   s("rspec", {
+    t("require 'rails_helper'"),
+    t({'',''}),
     t('RSpec.describe '), i(1), t(' do'),
     t({'',''}),
     t('end')
@@ -63,6 +65,22 @@ ls.add_snippets("ruby", {
     t({'',''}),
     t('end')
   }),
+  s("operation", fmt([[
+  module {}
+    class {} < Operation
+      def initialize(params)
+        @params = params
+      end
+
+      def run
+        # run baby, run...
+      end
+    end
+  end
+    ]], {
+    i(1),
+    i(2),
+  }))
 })
 
 ls.add_snippets('eruby', {
