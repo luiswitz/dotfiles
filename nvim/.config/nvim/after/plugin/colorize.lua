@@ -6,8 +6,10 @@ vim.cmd([[
 ]])
 
 function Colorize(color)
-	color = color or "base16-material-darker"
+	color = color or "kanagawa"
 	vim.cmd.colorscheme(color)
 end
 
 Colorize()
+
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#00FF7F", bold = true })
