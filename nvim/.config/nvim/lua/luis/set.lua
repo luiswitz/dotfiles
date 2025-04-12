@@ -29,3 +29,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true

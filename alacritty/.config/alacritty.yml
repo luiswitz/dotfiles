@@ -15,15 +15,15 @@ cursor:
 font:
   size: 13.5
   normal:
-    family: "Source Code Pro"
-    style: "Medium"
+    family: "SauceCodePro Nerd Font"
+    style: "Regular"
 
   bold:
-    family: "Source Code Pro"
+    family: "SauceCodePro Nerd Font"
     style: "Bold"
 
   italic:
-    family: "Source Code Pro"
+    family: "SauceCodePro Nerd Font"
     style: "Italic"
 
 scrolling:

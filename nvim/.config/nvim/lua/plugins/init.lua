@@ -56,4 +56,14 @@ return {
   "rebelot/kanagawa.nvim",
   "chriskempson/base16-vim",
   'arzg/vim-colors-xcode',
+
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
+    lazy = false,
+  },
+
+  -- colorschemes
+  "rebelot/kanagawa.nvim",
 }

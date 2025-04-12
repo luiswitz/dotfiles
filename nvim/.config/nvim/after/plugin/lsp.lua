@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({ 'n', 'x' }, '<leader>cs', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', 'vd', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
   end,
 })
 
@@ -40,7 +41,25 @@ require('lspconfig').glint.setup({}) -- Glimmer
 require('lspconfig').eslint.setup({})
 require('lspconfig').tailwindcss.setup({})
 require('lspconfig').html.setup({})
-require('lspconfig').lua_ls.setup({})
+require('lspconfig').lua_ls.setup({
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false, -- prevents annoying prompts
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
 require('lspconfig').stimulus_ls.setup({})
 require('lspconfig').ts_ls.setup({})
 
@@ -56,5 +75,8 @@ cmp.setup({
       vim.snippet.expand(args.body)
     end,
   },
-  mapping = cmp.mapping.preset.insert({}),
+  mapping = cmp.mapping.preset.insert({
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete()
+  }),
 })
