@@ -1,8 +1,5 @@
 vim.g.mapleader = " "
 
--- toggle files explorer
-vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
-
 -- move selected lines
 vim.keymap.set('v', 'J', ":move +2<CR>gv=gv")
 vim.keymap.set('v', 'K', ":move -2<CR>gv=gv")
