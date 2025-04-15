@@ -66,4 +66,10 @@ return {
 
   -- colorschemes
   "rebelot/kanagawa.nvim",
+
+  -- linters
+  'nvimtools/none-ls.nvim',
+
+  -- Mason
+  'williamboman/mason.nvim',
 }
