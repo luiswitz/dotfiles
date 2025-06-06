@@ -1,4 +1,5 @@
-import = ["/home/luis/.config/alacritty/themes/themes/tomorrow_night.toml"]
+[general]
+import = ["~/.config/alacritty/themes/themes/kanagawa_wave.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -11,23 +12,23 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 10.5
+size = 16.5
 
 [font.bold]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Source Code Pro"
-style = "Medium"
+family = "SauceCodePro Nerd Font"
+style = "Regular"
 
 [[keyboard.bindings]]
 chars = "\u001E"
@@ -42,10 +43,10 @@ mods = "Command"
 [scrolling]
 history = 10000
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]
-decorations = "Full"
+decorations = "None"
 dynamic_padding = true
 startup_mode = "Maximized"
