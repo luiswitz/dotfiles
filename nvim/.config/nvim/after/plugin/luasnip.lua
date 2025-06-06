@@ -107,26 +107,26 @@ ls.add_snippets('handlebars', {
   }),
 })
 
+-- Utility: check if cursor is inside <template>...</template>
+local function is_inside_gjs_template()
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+  local inside_template = false
+  for i = 1, row do
+    if lines[i]:find("<template>") then inside_template = true end
+    if lines[i]:find("</template>") then inside_template = false end
+  end
+  return inside_template
+end
+
 ls.add_snippets('glimmer', {
   s("if", {
     t('{{#if '), i(1), t(' }}'),
     t({'',''}),
     t('{{/if}}')
   }, {
-    condition = function()
-      -- Only expand inside <template>...</template>
-      local line = vim.api.nvim_get_current_line()
-      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-      local before = line:sub(1, col)
-      local bufnr = vim.api.nvim_get_current_buf()
-      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-      local inside_template = false
-      for i = 1, row do
-        if lines[i]:find("<template>") then inside_template = true end
-        if lines[i]:find("</template>") then inside_template = false end
-      end
-      return inside_template
-    end
+    condition = is_inside_gjs_template
   }),
   s("%", {
     t('<% '), i(1), t(' %>')
@@ -141,17 +141,7 @@ ls.add_snippets('javascript', {
     t({'',''}) , t('}')
   }, {
     condition = function()
-      local line = vim.api.nvim_get_current_line()
-      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-      local before = line:sub(1, col)
-      local bufnr = vim.api.nvim_get_current_buf()
-      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-      local inside_template = false
-      for i = 1, row do
-        if lines[i]:find("<template>") then inside_template = true end
-        if lines[i]:find("</template>") then inside_template = false end
-      end
-      return not inside_template
+      return not is_inside_gjs_template()
     end
   })
 })
