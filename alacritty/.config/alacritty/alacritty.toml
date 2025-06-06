@@ -45,6 +45,7 @@ history = 10000
 
 [terminal.shell]
 program = "/bin/zsh"
+args = ["--login"]
 
 [window]
 decorations = "None"
