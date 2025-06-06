@@ -1,55 +1,55 @@
 return {
+  -- Telescope and related plugins
   {
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   },
   'nvim-telescope/telescope-media-files.nvim',
+
+  -- Treesitter and related plugins
   {
     'nvim-treesitter/nvim-treesitter',
     requires = { { 'nvim-treesitter/playground' } },
   },
   'nvim-treesitter/playground',
+
+  -- Harpoon
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     requires = { { "nvim-lua/plenary.nvim" } }
   },
+
+  -- Snippets
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
+    version = "v2.*",
     build = "make install_jsregexp"
   },
 
+  -- Undo tree
   'mbbill/undotree',
 
+  -- Git integration
   'tpope/vim-fugitive',
+  'lewis6991/gitsigns.nvim',
 
+  -- LSP and completion
   'neovim/nvim-lspconfig',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/nvim-cmp',
 
+  -- UI enhancements
   "shortcuts/no-neck-pain.nvim",
-
-  -- Makes argument formatting easier
   "FooSoft/vim-argwrap",
-
-  -- easy comments
   "tpope/vim-commentary",
-
-  -- Surround text is better with vim surround
   "tpope/vim-surround",
-
   "mattn/emmet-vim",
-
   "vim-test/vim-test",
-
   'christoomey/vim-tmux-navigator',
-
   'windwp/nvim-autopairs',
 
-  'lewis6991/gitsigns.nvim',
+  -- Colorschemes
   "rktjmp/lush.nvim",
   "metalelf0/jellybeans-nvim",
   'projekt0n/github-nvim-theme',
@@ -57,6 +57,7 @@ return {
   "chriskempson/base16-vim",
   'arzg/vim-colors-xcode',
 
+  -- File explorer
   {
     'stevearc/oil.nvim',
     opts = {},
@@ -64,10 +65,7 @@ return {
     lazy = false,
   },
 
-  -- colorschemes
-  "rebelot/kanagawa.nvim",
-
-  -- linters
+  -- Linters
   'nvimtools/none-ls.nvim',
 
   -- Mason
@@ -77,37 +75,38 @@ return {
   {
     'yetone/avante.nvim',
     opts = {
-      provider = "openai",
-      openai = {
-        endpoint = "https://api.openai.com/v1",
-        model = "gpt-4o",           -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000,            -- Timeout in milliseconds, increase this for reasoning models
-        temperature = 0,
-        max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-        --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      provider="openai",
+      providers = {
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model = "gpt-4.1",
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 0,
+            max_completion_tokens = 8192,
+            reasoning_effort = "medium",
+          },
+        },
       },
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
       "MunifTanjim/nui.nvim",
-      "echasnovski/mini.pick",       -- for file_selector provider mini.pick
-      "ibhagwan/fzf-lua",            -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",      -- for providers='copilot'
+      "echasnovski/mini.pick",
+      "ibhagwan/fzf-lua",
+      "nvim-tree/nvim-web-devicons",
+      "zbirenbaum/copilot.lua",
       {
-        -- support for image pasting
         "HakonHarnes/img-clip.nvim",
         event = "VeryLazy",
         opts = {
-          -- recommended settings
           default = {
             embed_image_as_base64 = false,
             prompt_for_file_name = false,
             drag_and_drop = {
               insert_mode = true,
             },
-            -- required for Windows users
             use_absolute_path = true,
           },
         },
