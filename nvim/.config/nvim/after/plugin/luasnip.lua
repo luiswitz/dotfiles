@@ -30,16 +30,10 @@ vim.keymap.set({"i"}, "<C-a>", function() ls.expand() end, {silent = true})
 vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
 vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
 
-ls.add_snippets("lua", {
-	s("ternary", {
-		-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-		i(1, "cond"), t(" ? "), i(2, " then"), t(" : "), i(3, "else")
-	})
-})
-
 ls.add_snippets("ruby", {
   s("rspec", {
     t("require 'rails_helper'"),
+    t({'',''}),
     t({'',''}),
     t('RSpec.describe '), i(1), t(' do'),
     t({'',''}),
@@ -52,6 +46,11 @@ ls.add_snippets("ruby", {
   }),
   s("it", {
     t('it \''), i(1), t('\' do'),
+    t({'',''}),
+    t('end')
+  }),
+  s("context", {
+    t('context \''), i(1), t('\' do'),
     t({'',''}),
     t('end')
   }),
@@ -97,6 +96,65 @@ ls.add_snippets('eruby', {
   }),
 })
 
+ls.add_snippets('handlebars', {
+  s("if", {
+    t('{{#if '), i(1), t(' }}'),
+    t({'',''}),
+    t('{{/if}}')
+  }),
+  s("%", {
+    t('<% '), i(1), t(' %>')
+  }),
+})
+
+ls.add_snippets('glimmer', {
+  s("if", {
+    t('{{#if '), i(1), t(' }}'),
+    t({'',''}),
+    t('{{/if}}')
+  }, {
+    condition = function()
+      -- Only expand inside <template>...</template>
+      local line = vim.api.nvim_get_current_line()
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+      local before = line:sub(1, col)
+      local bufnr = vim.api.nvim_get_current_buf()
+      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+      local inside_template = false
+      for i = 1, row do
+        if lines[i]:find("<template>") then inside_template = true end
+        if lines[i]:find("</template>") then inside_template = false end
+      end
+      return inside_template
+    end
+  }),
+  s("%", {
+    t('<% '), i(1), t(' %>')
+  }),
+})
+
+-- Regular JS if snippet for .gjs files, only outside <template>
+ls.add_snippets('javascript', {
+  s("if", {
+    t('if ('), i(1), t(') {'),
+    t({'','  '}), i(2),
+    t({'',''}) , t('}')
+  }, {
+    condition = function()
+      local line = vim.api.nvim_get_current_line()
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+      local before = line:sub(1, col)
+      local bufnr = vim.api.nvim_get_current_buf()
+      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+      local inside_template = false
+      for i = 1, row do
+        if lines[i]:find("<template>") then inside_template = true end
+        if lines[i]:find("</template>") then inside_template = false end
+      end
+      return not inside_template
+    end
+  })
+})
 ls.add_snippets('handlebars', {
   s("if", {
     t('{{#if '), i(1), t(' }}'),
