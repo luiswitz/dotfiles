@@ -128,9 +128,15 @@ ls.add_snippets('glimmer', {
   }, {
     condition = is_inside_gjs_template
   }),
-  s("%", {
-    t('<% '), i(1), t(' %>')
-  }),
+  s("each", {
+    t('{{#each '), i(1), t(' }}'),
+    t({'',''}),
+    t('{{/each}}')
+  }, {
+    condition = function()
+      return is_inside_gjs_template()
+    end
+  })
 })
 
 -- Regular JS if snippet for .gjs files, only outside <template>
@@ -143,7 +149,7 @@ ls.add_snippets('javascript', {
     condition = function()
       return not is_inside_gjs_template()
     end
-  })
+  }),
 })
 ls.add_snippets('handlebars', {
   s("if", {
@@ -151,7 +157,9 @@ ls.add_snippets('handlebars', {
     t({'',''}),
     t('{{/if}}')
   }),
-  s("%", {
-    t('<% '), i(1), t(' %>')
+  s("each", {
+    t('{{#each '), i(1), t(' }}'),
+    t({'',''}),
+    t('{{/each}}')
   }),
 })
