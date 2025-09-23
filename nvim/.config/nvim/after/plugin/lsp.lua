@@ -34,14 +34,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers.
-require('lspconfig').ruby_lsp.setup({})
-require('lspconfig').rubocop.setup({})
-require('lspconfig').ember.setup({})
-require('lspconfig').glint.setup({}) -- Glimmer
-require('lspconfig').eslint.setup({})
-require('lspconfig').tailwindcss.setup({})
-require('lspconfig').html.setup({})
-require('lspconfig').lua_ls.setup({
+vim.lsp.config('ruby_lsp', {})
+vim.lsp.config('rubocop', {})
+vim.lsp.config('ember', {})
+vim.lsp.config('glint', {}) -- Glimmer
+vim.lsp.config('eslint', {})
+vim.lsp.config('tailwindcss', {})
+vim.lsp.config('html', {})
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       runtime = {
@@ -60,8 +60,8 @@ require('lspconfig').lua_ls.setup({
     },
   },
 })
-require('lspconfig').stimulus_ls.setup({})
-require('lspconfig').ts_ls.setup({})
+vim.lsp.config('stimulus_ls', {})
+vim.lsp.config('ts_ls', {})
 
 local cmp = require('cmp')
 
