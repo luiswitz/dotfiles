@@ -33,14 +33,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
--- These are example language servers.
-vim.lsp.config('ruby_lsp', {})
-vim.lsp.config('rubocop', {})
-vim.lsp.config('ember', {})
-vim.lsp.config('glint', {}) -- Glimmer
-vim.lsp.config('eslint', {})
-vim.lsp.config('tailwindcss', {})
-vim.lsp.config('html', {})
+vim.lsp.enable('ruby_lsp')
+vim.lsp.enable('rubocop')
+vim.lsp.enable('ember')
+-- Glimmer
+vim.lsp.config('glint', {
+  init_options = {
+    glint = {
+      useGlobal = true,
+    },
+  },
+})
+vim.lsp.enable('glint')
+vim.lsp.enable('eslint')
+vim.lsp.enable('tailwindcss')
+
+-- HTML
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+vim.lsp.config('html', {
+  capabilities = capabilities
+})
+vim.lsp.enable('html')
+
 vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
@@ -60,8 +76,10 @@ vim.lsp.config('lua_ls', {
     },
   },
 })
-vim.lsp.config('stimulus_ls', {})
-vim.lsp.config('ts_ls', {})
+vim.lsp.enable('lua_ls')
+
+vim.lsp.enable('stimulus_ls')
+vim.lsp.enable('ts_ls')
 
 local cmp = require('cmp')
 
