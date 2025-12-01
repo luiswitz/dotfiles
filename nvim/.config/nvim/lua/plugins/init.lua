@@ -65,11 +65,29 @@ return {
     lazy = false,
   },
 
-  -- Linters
-  'nvimtools/none-ls.nvim',
+  -- Conform
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {},
+  },
 
   -- Mason
   'williamboman/mason.nvim',
+
+  -- Tokyonight
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   -- Avante
   {
