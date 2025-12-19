@@ -35,6 +35,10 @@ oil.setup({
     show_hidden = true
   },
   keymaps = {
+    ['<C-h>'] = false,
+    ['<C-j>'] = false,
+    ['<C-k>'] = false,
+    ['<C-l>'] = false,
     -- disable preview to be able to trigger Telescope
     ['<C-p>'] = {}
   }

@@ -5,5 +5,8 @@ return {
 			lazyvim = false,
 			neovim = false,
 		},
+    defaults = {
+      keymaps = false
+    }
 	},
 }
