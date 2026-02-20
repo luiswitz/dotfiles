@@ -33,6 +33,7 @@ return {
   -- Git integration
   'tpope/vim-fugitive',
   'lewis6991/gitsigns.nvim',
+  'sindrets/diffview.nvim',
 
   -- LSP and completion
   'neovim/nvim-lspconfig',
