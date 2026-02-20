@@ -1,3 +1,5 @@
+vim.opt_local.conceallevel = 2
+
 local obsidian_dir = os.getenv("OBSIDIAN_VAULT")
 
 if not obsidian_dir then
@@ -30,28 +32,4 @@ require('obsidian').setup({
       path = "~/visible/visible-brain",
     },
   },
-  templates = {
-    folder = "~/obsidian/templates",
-    date_format = "%Y-%m-%d-%a",
-    time_format = "%H:%M",
-  },
-  note_path_func = function(spec)
-    return "00_Inbox/" .. spec.id
-  end,
-  note_id_func = function(title)
-    local suffix = os.date("%Y-%m-%d")
-
-    if title ~= nil then
-      -- Convert title to a filename-safe slug
-      local slug = title
-          :lower()
-          :gsub("[^a-z0-9%s-]", "")
-          :gsub("%s+", "-")
-          :gsub("-+", "-")
-
-      return slug .. "-" .. suffix
-    else
-      return tostring(os.time())
-    end
-  end,
 })

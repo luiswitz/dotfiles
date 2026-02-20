@@ -39,7 +39,11 @@ vim.lsp.enable('ruby_lsp')
 vim.lsp.enable('rubocop')
 vim.lsp.enable('ember')
 -- Glimmer
+-- NOTE: Overriding cmd to work around upstream bug in nvim-lspconfig
+-- where glint.lua's cmd function signature doesn't match vim.lsp.Config
+-- See: https://github.com/neovim/nvim-lspconfig/issues/3960
 vim.lsp.config('glint', {
+  cmd = { 'glint-language-server' },
   init_options = {
     glint = {
       useGlobal = true,
