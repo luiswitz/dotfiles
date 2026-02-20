@@ -39,7 +39,7 @@ oil.setup({
     ['<C-j>'] = false,
     ['<C-k>'] = false,
     ['<C-l>'] = false,
-    -- disable preview to be able to trigger Telescope
+    -- disable preview to be able to trigger Snacks picker
     ['<C-p>'] = {}
   }
 })

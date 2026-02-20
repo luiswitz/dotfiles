@@ -1,11 +1,4 @@
 return {
-  -- Telescope and related plugins
-  {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  },
-  'nvim-telescope/telescope-media-files.nvim',
-
   -- Treesitter and related plugins
   {
     'nvim-treesitter/nvim-treesitter',
@@ -17,7 +10,7 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { { "nvim-lua/plenary.nvim" } }
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
 
   -- Snippets
@@ -76,7 +69,17 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    opts = {},
+    ---@type snacks.Config
+    opts = {
+      picker = {
+        sources = {
+          grep = {
+            regex = false,
+          },
+        },
+      },
+      indent = {},
+    },
   },
 
   -- Mason
