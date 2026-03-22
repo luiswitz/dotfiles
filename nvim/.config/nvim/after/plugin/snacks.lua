@@ -1,5 +1,5 @@
 -- Snacks picker keymaps (replaces Telescope)
-vim.keymap.set('n', '<C-p>', function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
+vim.keymap.set('n', '<C-p>', function() Snacks.picker.git_files({ untracked = true }) end, { desc = "Find Git Files" })
 vim.keymap.set("n", "<C-b>", function() Snacks.picker.buffers({ hidden = true }) end, { desc = "Buffers" })
 vim.keymap.set("n", "<Leader>ag", function() Snacks.picker.grep() end, { desc = "Live Grep" })
 
