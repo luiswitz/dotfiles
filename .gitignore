@@ -1,3 +1,5 @@
 nvim/.config/nvim/plugin/
 nvim/.config/nvim/lazy-lock.json
 tmux/.tmux
+omarchy/.local/bin/
+!omarchy/.local/bin/omarchy-tmux-theme.sh
