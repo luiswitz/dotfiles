@@ -1,1 +1,8 @@
+# Font
+font-family = "CaskaydiaMono Nerd Font"
+font-size = 16.5
+font-style = Regular
+font-thicken = true
+
+# Window
 window-decoration = none

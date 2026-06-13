@@ -17,5 +17,6 @@ profit
 
 ## TODO
 
-- [ ] Add tmux configs
+- [x] Add tmux configs
+- [ ] Add fish configs
 - [ ] Install script
