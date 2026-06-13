@@ -1,11 +1,9 @@
 return {
-  -- Treesitter and related plugins
   {
-    'nvim-treesitter/nvim-treesitter',
-    requires = { { 'nvim-treesitter/playground' } },
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
   },
-  'nvim-treesitter/playground',
-
   -- Harpoon
   {
     "ThePrimeagen/harpoon",
@@ -92,23 +90,4 @@ return {
     priority = 1000,
     opts = {},
   },
-
-  -- renderer markdown
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
-
-  -- Copilot
-  'zbirenbaum/copilot.lua',
-
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-  }
 }
