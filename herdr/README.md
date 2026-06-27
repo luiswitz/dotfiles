@@ -21,8 +21,8 @@ The keybindings and behavior are ported from `tmux/.tmux.conf`:
 | tmux                    | Herdr                                 |
 |-------------------------|---------------------------------------|
 | `C-b` prefix            | `ctrl+s`                              |
-| `prefix + \|`           | `prefix + shift + \` (vertical split) |
-| `prefix + -`            | `prefix + minus` (horizontal split)   |
+| `prefix + \|`           | `prefix + \|` (vertical split)        |
+| `prefix + -`            | `prefix + -` (horizontal split)       |
 | `prefix + r`            | `prefix + r` (reload config)          |
 | `prefix + h/j/k/l`      | `ctrl + h/j/k/l` (focus panes)        |
 | `prefix + m`            | `prefix + m` (zoom pane)              |
