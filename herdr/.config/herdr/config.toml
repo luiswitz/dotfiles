@@ -1,0 +1,111 @@
+# Herdr terminal workspace manager configuration
+# Translated from tmux config (.tmux.conf)
+
+# Disable first-run onboarding after initial setup.
+onboarding = false
+
+[theme]
+# Theme is synced from the Omarchy current theme via:
+#   ~/.local/bin/herdr-omarchy-theme.sh
+# When running outside Omarchy, the fallback below is used.
+name = "tokyo-night"
+auto_switch = false
+
+[terminal]
+default_shell = ""
+shell_mode = "auto"
+new_cwd = "follow"
+
+[update]
+channel = "stable"
+version_check = true
+manifest_check = true
+
+[keys]
+# Prefix matches tmux: Ctrl+s instead of Ctrl+b.
+prefix = "ctrl+s"
+
+# Pane navigation (vim-tmux-navigator style) — no prefix required.
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+
+# Splits, matching tmux | (vertical/side-by-side) and - (horizontal/stacked).
+# | is Shift+backslash on US keyboards.
+split_vertical = "prefix+shift+backslash"
+split_horizontal = "prefix+minus"
+
+# Reload config (matches tmux prefix + r).
+reload_config = "prefix+r"
+
+# Resize mode moved to prefix + shift + r to avoid clashing with reload.
+resize_mode = "prefix+shift+r"
+
+# Zoom pane, matching tmux prefix + m.
+zoom = "prefix+m"
+
+# Tab management (tmux "windows").
+new_tab = "prefix+c"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+close_tab = "prefix+shift+x"
+rename_tab = "prefix+shift+t"
+
+# Workspace management (tmux "sessions" / workspace picker).
+workspace_picker = "prefix+w"
+new_workspace = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+previous_workspace = ""
+next_workspace = ""
+
+# Pane operations.
+close_pane = "prefix+x"
+rename_pane = "prefix+shift+p"
+edit_scrollback = "prefix+e"
+copy_mode = "prefix+["
+
+# Misc.
+detach = "prefix+d"
+help = "prefix+?"
+settings = "prefix+s"
+goto = "prefix+g"
+open_notification_target = "prefix+o"
+toggle_sidebar = "prefix+b"
+
+# Navigate-mode movement (used by resize mode and other navigation UI).
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+[ui]
+mouse_capture = true
+pane_borders = true
+pane_gaps = true
+show_agent_labels_on_pane_borders = false
+agent_panel_sort = "spaces"
+accent = "cyan"
+confirm_close = true
+prompt_new_tab_name = true
+
+[ui.toast]
+delivery = "off"
+
+[session]
+resume_agents_on_restore = true
+
+[worktrees]
+directory = "~/.herdr/worktrees"
+
+[experimental]
+pane_history = false
+allow_nested = false
+
+[remote]
+manage_ssh_config = true
+
+[advanced]
+scrollback_limit_bytes = 10000000

@@ -18,5 +18,6 @@ profit
 ## TODO
 
 - [x] Add tmux configs
+- [x] Add herdr configs
 - [ ] Add fish configs
 - [ ] Install script
