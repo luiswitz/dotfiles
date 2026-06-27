@@ -75,6 +75,10 @@ open_notification_target = "prefix+o"
 toggle_sidebar = "prefix+b"
 
 # Navigate-mode movement (used by resize mode and other navigation UI).
+# NOTE: navigate_workspace_* and navigate_pane_* cannot share keys. The
+# workspace variants are unset here so h/j/k/l can move/resize panes.
+navigate_workspace_up = ""
+navigate_workspace_down = ""
 navigate_pane_left = "h"
 navigate_pane_down = "j"
 navigate_pane_up = "k"

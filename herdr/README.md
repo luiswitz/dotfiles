@@ -38,6 +38,17 @@ The keybindings and behavior are ported from `tmux/.tmux.conf`:
 Resize uses Herdr's resize mode (`prefix + shift + r`) because Herdr does not
 support tmux-style repeatable resize keys.
 
+## Resize mode
+
+Press `prefix + shift + r` to enter resize mode. Then use:
+
+- `h` / `l` — resize width
+- `j` / `k` — resize height
+- `esc` or `enter` — exit resize mode
+
+This is the Herdr equivalent of tmux's repeatable `prefix + h/j/k/l` resize
+keys.
+
 ## Omarchy theme sync
 
 If you use Omarchy, run the helper to match Herdr's theme to the current
