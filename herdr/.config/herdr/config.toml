@@ -50,7 +50,7 @@ previous_tab = "prefix+p"
 next_tab = "prefix+n"
 switch_tab = "prefix+1..9"
 close_tab = "prefix+shift+x"
-rename_tab = "prefix+shift+t"
+rename_tab = "prefix+comma"
 
 # Workspace management (tmux "sessions" / workspace picker).
 workspace_picker = "prefix+w"
@@ -75,10 +75,9 @@ open_notification_target = "prefix+o"
 toggle_sidebar = "prefix+b"
 
 # Navigate-mode movement (used by resize mode and other navigation UI).
-# NOTE: navigate_workspace_* and navigate_pane_* cannot share keys. The
-# workspace variants are unset here so h/j/k/l can move/resize panes.
-navigate_workspace_up = ""
-navigate_workspace_down = ""
+# Workspace picker uses arrow keys; h/j/k/l stay reserved for pane navigation.
+navigate_workspace_up = "up"
+navigate_workspace_down = "down"
 navigate_pane_left = "h"
 navigate_pane_down = "j"
 navigate_pane_up = "k"
