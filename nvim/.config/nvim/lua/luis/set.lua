@@ -30,6 +30,12 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Copy yanks to the system clipboard",
+  callback = function()
+    if vim.v.event.operator == "y" then
+      vim.fn.setreg("+", vim.fn.getreg('"'))
+    end
+  end,
+})
+
