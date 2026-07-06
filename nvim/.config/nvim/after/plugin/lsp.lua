@@ -27,7 +27,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set({ 'n', 'x' }, '<leader>cs', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set({ 'n', 'x' }, '<leader>cs', function()
+      require('conform').format({ async = true, lsp_format = 'fallback' })
+    end, vim.tbl_extend('force', opts, { desc = 'Format buffer (conform)' }))
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     vim.keymap.set('n', 'vd', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
   end,
