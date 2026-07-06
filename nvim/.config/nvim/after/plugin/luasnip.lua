@@ -91,19 +91,8 @@ ls.add_snippets('eruby', {
   }),
   s("tft", {
     t('<%= turbo_frame_tag "'), i(1), t('" do %>'),
-    t(i(2), {'',''}),
-    t('<% end %>')
-  }),
-})
-
-ls.add_snippets('handlebars', {
-  s("if", {
-    t('{{#if '), i(1), t(' }}'),
-    t({'',''}),
-    t('{{/if}}')
-  }),
-  s("%", {
-    t('<% '), i(1), t(' %>')
+    i(2),
+    t({'','<% end %>'})
   }),
 })
 

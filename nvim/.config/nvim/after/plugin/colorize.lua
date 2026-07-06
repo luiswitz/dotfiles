@@ -10,6 +10,8 @@ function Colorize(color)
 	vim.cmd.colorscheme(color)
 end
 
-Colorize()
+if vim.env.BASE16_THEME == nil then
+	Colorize()
+end
 
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#00FF7F", bold = true })

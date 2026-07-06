@@ -44,5 +44,4 @@ oil.setup({
   }
 })
 
-vim.keymap.set("n", "<C-n>", toggle_oil, { desc = "Toggle Oil" })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

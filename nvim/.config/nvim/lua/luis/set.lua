@@ -1,7 +1,6 @@
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
-vim.opt.relativenumber = false
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -28,8 +27,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = " "
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Copy yanks to the system clipboard",
   callback = function()
@@ -38,4 +35,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end
   end,
 })
+
+vim.opt.undofile = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
 

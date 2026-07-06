@@ -83,6 +83,13 @@ return {
   -- Mason
   'williamboman/mason.nvim',
 
+  -- Which-key
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- Tokyonight
   {
     "folke/tokyonight.nvim",

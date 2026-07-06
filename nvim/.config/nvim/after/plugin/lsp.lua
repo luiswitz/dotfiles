@@ -1,5 +1,13 @@
 vim.lsp.log.set_level("ERROR")
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 -- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
@@ -32,6 +40,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, vim.tbl_extend('force', opts, { desc = 'Format buffer (conform)' }))
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     vim.keymap.set('n', 'vd', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+    vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+    vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+    vim.keymap.set('n', '<leader>cd', '<cmd>lua vim.diagnostic.setloclist()<cr>', opts)
   end,
 })
 
@@ -57,8 +68,19 @@ vim.lsp.enable('eslint')
 vim.lsp.enable('tailwindcss')
 
 -- HTML
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  {
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = true,
+        },
+      },
+    },
+  }
+)
 
 vim.lsp.config('html', {
   capabilities = capabilities
