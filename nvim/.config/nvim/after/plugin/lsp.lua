@@ -36,8 +36,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', vim.tbl_extend('force', opts, { desc = 'Signature help' }))
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', vim.tbl_extend('force', opts, { desc = 'Rename symbol' }))
     vim.keymap.set({ 'n', 'x' }, '<leader>cs', function()
-      require('conform').format({ async = true, lsp_format = 'fallback' })
-    end, vim.tbl_extend('force', opts, { desc = 'Format buffer (conform)' }))
+      local mode = vim.fn.mode()
+      if mode == 'v' or mode == 'V' or mode == '\22' then
+        -- Format the visual selection using conform's formatexpr
+        vim.api.nvim_feedkeys('gq', 'x', false)
+      else
+        require('conform').format({ async = true, lsp_format = 'fallback' })
+      end
+    end, vim.tbl_extend('force', opts, { desc = 'Format buffer/selection (conform)' }))
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', vim.tbl_extend('force', opts, { desc = 'Code action' }))
     vim.keymap.set('n', 'vd', '<cmd>lua vim.diagnostic.open_float()<cr>', vim.tbl_extend('force', opts, { desc = 'Show diagnostic' }))
     vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', vim.tbl_extend('force', opts, { desc = 'Previous diagnostic' }))
