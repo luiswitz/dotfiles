@@ -60,6 +60,11 @@ close_workspace = "prefix+shift+d"
 previous_workspace = ""
 next_workspace = ""
 
+# Agent navigation (switch between detected AI agents).
+previous_agent = "prefix+shift+["
+next_agent = "prefix+shift+]"
+focus_agent = "prefix+alt+1..9"
+
 # Pane operations.
 close_pane = "prefix+x"
 rename_pane = "prefix+shift+p"
