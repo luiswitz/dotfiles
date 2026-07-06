@@ -61,15 +61,15 @@ previous_workspace = ""
 next_workspace = ""
 
 # Agent navigation (switch between detected AI agents).
-previous_agent = "prefix+shift+["
-next_agent = "prefix+shift+]"
+previous_agent = "prefix+["
+next_agent = "prefix+]"
 focus_agent = "prefix+alt+1..9"
 
 # Pane operations.
 close_pane = "prefix+x"
 rename_pane = "prefix+shift+p"
 edit_scrollback = "prefix+e"
-copy_mode = "prefix+["
+copy_mode = "prefix+shift+["
 
 # Misc.
 detach = "prefix+d"
