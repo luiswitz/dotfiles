@@ -2,4 +2,4 @@ require("no-neck-pain").setup({
   width = 150
 })
 
-vim.keymap.set("n", "<leader>zz", vim.cmd.NoNeckPain)
+vim.keymap.set("n", "<leader>zz", vim.cmd.NoNeckPain, { desc = "Toggle no-neck-pain" })

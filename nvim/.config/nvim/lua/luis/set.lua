@@ -23,7 +23,13 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.opt.updatetime = 50
+
+vim.opt.inccommand = "split"
+vim.opt.confirm = true
 
 vim.opt.colorcolumn = "80"
 
