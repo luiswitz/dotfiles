@@ -24,3 +24,8 @@ end
 if test -n "$OMF_PATH"
     omf theme damin 2>/dev/null
 end
+
+if type -q fnm
+    fnm env --use-on-cd --shell fish | source
+    fnm default 22
+end

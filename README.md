@@ -74,6 +74,25 @@ herdr server reload-config
 
 On first launch, [lazy.nvim](https://github.com/folke/lazy.nvim) will bootstrap and install plugins. `mason-tool-installer` will then install configured LSP servers and formatters on startup.
 
+## Shell
+
+This setup uses [fish](https://fishshell.com/) as the default shell.
+
+To set fish as your login shell:
+
+```bash
+# Find the path to fish (works on macOS and Linux)
+fish_path=$(command -v fish)
+
+# Add fish to the list of allowed login shells (idempotent)
+grep -q "$fish_path" /etc/shells || sudo sh -c "echo $fish_path >> /etc/shells"
+
+# Change your default shell to fish
+chsh -s "$fish_path"
+```
+
+Open a new terminal for the change to take effect.
+
 ## Branching
 
 Active development is done on the `herdr` branch. `master` is the stable baseline.
