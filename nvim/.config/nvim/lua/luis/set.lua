@@ -42,7 +42,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.opt.undofile = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  desc = "Auto-reload buffers changed outside Neovim",
+  pattern = "*",
+  command = "checktime",
+})
+
+vim.opt.autoread = true
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
