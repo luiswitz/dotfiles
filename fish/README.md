@@ -4,10 +4,27 @@ This directory contains fish shell configuration with the **damin** theme set as
 
 ## Setup
 
+### 1. Stow the fish config
+
 ```bash
 cd ~/.dotfiles
 stow fish
 ```
+
+### 2. Set fish as your login shell
+
+```bash
+# Find the path to fish (works on macOS and Linux)
+fish_path=$(command -v fish)
+
+# Add fish to the list of allowed login shells (idempotent)
+grep -q "$fish_path" /etc/shells || sudo sh -c "echo $fish_path >> /etc/shells"
+
+# Change your default shell to fish
+chsh -s "$fish_path"
+```
+
+Open a new terminal for the change to take effect.
 
 ## Theme Installation
 
