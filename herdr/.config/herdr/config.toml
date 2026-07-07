@@ -8,11 +8,11 @@ onboarding = false
 # Theme is synced from the Omarchy current theme via:
 #   ~/.local/bin/herdr-omarchy-theme.sh
 # When running outside Omarchy, the fallback below is used.
-name = "tokyo-night"
+name = "catppuccin"
 auto_switch = false
 
 [terminal]
-default_shell = ""
+default_shell = "fish"
 shell_mode = "auto"
 new_cwd = "follow"
 
@@ -25,11 +25,11 @@ manifest_check = true
 # Prefix matches tmux: Ctrl+s instead of Ctrl+b.
 prefix = "ctrl+s"
 
-# Pane navigation (vim-tmux-navigator style) — no prefix required.
-focus_pane_left = "ctrl+h"
-focus_pane_down = "ctrl+j"
-focus_pane_up = "ctrl+k"
-focus_pane_right = "ctrl+l"
+# Pane navigation: keep on prefix + h/j/k/l so Ctrl+h/l remain free for Vim.
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
 
 # Splits, matching tmux | (vertical/side-by-side) and - (horizontal/stacked).
 split_vertical = "prefix+|"

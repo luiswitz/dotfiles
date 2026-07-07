@@ -24,7 +24,7 @@ The keybindings and behavior are ported from `tmux/.tmux.conf`:
 | `prefix + \|`           | `prefix + \|` (vertical split)        |
 | `prefix + -`            | `prefix + -` (horizontal split)       |
 | `prefix + r`            | `prefix + r` (reload config)          |
-| `prefix + h/j/k/l`      | `ctrl + h/j/k/l` (focus panes)        |
+| `prefix + h/j/k/l`      | `prefix + h/j/k/l` (focus panes)      |
 | `prefix + m`            | `prefix + m` (zoom pane)              |
 | `prefix + c`            | `prefix + c` (new tab)                |
 | `prefix + p/n`          | `prefix + p/n` (prev/next tab)        |
@@ -34,6 +34,10 @@ The keybindings and behavior are ported from `tmux/.tmux.conf`:
 | `prefix + d`            | `prefix + d` (detach)                 |
 | `prefix + w`            | `prefix + w` (workspace picker)       |
 | Mouse                   | `ui.mouse_capture = true`             |
+
+Pane navigation uses `prefix + h/j/k/l` so that `Ctrl+h` / `Ctrl+l` stay free
+for Vim buffer/window movement. Herdr intercepts direct `Ctrl+h/j/k/l` bindings
+globally, which prevents them from reaching Vim.
 
 Resize uses Herdr's resize mode (`prefix + shift + r`) because Herdr does not
 support tmux-style repeatable resize keys.
