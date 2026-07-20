@@ -26,7 +26,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 
 vim.opt.inccommand = "split"
 vim.opt.confirm = true
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
   desc = "Auto-reload buffers changed outside Neovim",
   pattern = "*",
   command = "checktime",
@@ -55,4 +55,8 @@ vim.opt.smartcase = true
 
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+
+-- Disable built-in matchparen; it calls searchpairpos on every cursor move and is a
+-- known source of typing lag in Ruby and other syntax-heavy files.
+vim.g.loaded_matchparen = 1
 

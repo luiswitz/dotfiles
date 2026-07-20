@@ -17,10 +17,9 @@ require("conform").setup({
     yaml = { "prettierd", "prettier", stop_after_first = true },
     markdown = { "prettierd", "prettier", stop_after_first = true },
   },
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = "fallback",
-  },
+  -- Disabled: synchronous format-on-save blocks the UI while rubocop/prettierd run.
+  -- Format manually with <leader>cs instead.
+  format_on_save = false,
 })
 
 vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"

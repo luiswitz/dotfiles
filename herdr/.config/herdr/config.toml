@@ -116,3 +116,15 @@ manage_ssh_config = true
 
 [advanced]
 scrollback_limit_bytes = 10000000
+
+[[keys.command]]
+key = "prefix+shift+up"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "herdr-plus: projects"
+
+[[keys.command]]
+key = "prefix+shift+down"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "herdr-plus: quick actions"

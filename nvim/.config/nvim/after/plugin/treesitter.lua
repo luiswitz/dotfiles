@@ -41,3 +41,15 @@ else
     end,
   })
 end
+
+-- The built-in Ruby indent plugin (indent/ruby.vim) is regex-based and a known source of
+-- typing lag. Override it with Treesitter indentation for Ruby and ERB files.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "ruby", "eruby" },
+  callback = function(args)
+    local has_parser = pcall(vim.treesitter.get_parser, args.buf)
+    if has_parser then
+      vim.bo[args.buf].indentexpr = "nvim_treesitter#indent()"
+    end
+  end,
+})

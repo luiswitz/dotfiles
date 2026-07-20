@@ -130,6 +130,12 @@ cmp.setup({
   },
   completion = {
     autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
+    keyword_length = 2,
+  },
+  performance = {
+    debounce = 60,
+    throttle = 30,
+    fetching_timeout = 200,
   },
   mapping = cmp.mapping.preset.insert({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
