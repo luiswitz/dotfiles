@@ -92,7 +92,7 @@ navigate_pane_right = "l"
 mouse_capture = true
 pane_borders = true
 pane_gaps = true
-show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 agent_panel_sort = "spaces"
 accent = "cyan"
 confirm_close = true
@@ -110,6 +110,9 @@ directory = "~/.herdr/worktrees"
 [experimental]
 pane_history = false
 allow_nested = false
+# Experimental local Kitty graphics rendering for attached clients.
+# Requires a Kitty graphics-compatible outer terminal (Ghostty qualifies).
+kitty_graphics = true
 
 [remote]
 manage_ssh_config = true

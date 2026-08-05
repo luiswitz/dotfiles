@@ -53,6 +53,22 @@ Press `prefix + shift + r` to enter resize mode. Then use:
 This is the Herdr equivalent of tmux's repeatable `prefix + h/j/k/l` resize
 keys.
 
+## Kitty graphics (images)
+
+`experimental.kitty_graphics = true` enables in-pane image rendering via the
+Kitty image protocol (works with Ghostty as the outer terminal). It is off by
+default — without it, image escape sequences are silently dropped and tools
+like `kitten icat`, `yazi`, or `snacks.image` show nothing.
+
+Requires herdr >= 0.5.9 (0.8.0+ recommended — it fixes images disappearing
+during repaints). Local panes and attached clients only; not remote panes.
+
+Quick test in a shell pane:
+
+```bash
+kitty-img.sh some.png   # or: kitten icat some.png
+```
+
 ## Omarchy theme sync
 
 If you use Omarchy, run the helper to match Herdr's theme to the current
