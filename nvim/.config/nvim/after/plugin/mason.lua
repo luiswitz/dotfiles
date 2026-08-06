@@ -3,8 +3,8 @@ require("mason").setup({})
 require("mason-tool-installer").setup({
   ensure_installed = {
     -- LSP servers
-    "ruby-lsp",
-    "rubocop",
+    -- NOTE: ruby-lsp and rubocop are intentionally absent. They must run on
+    -- each project's own Ruby (via mise shims); see ruby-lsp-bootstrap.lua.
     "eslint-lsp",
     "tailwindcss-language-server",
     "html-lsp",

@@ -4,7 +4,9 @@ require("conform").setup({
   },
   formatters_by_ft = {
     lua = { "stylua" },
-    ruby = { "rubocop" },
+    -- Ruby formatting goes through ruby-lsp, which runs the project's own
+    -- rubocop via the composed bundle (correct plugins + versions).
+    ruby = { lsp_format = "prefer" },
     rust = { "rustfmt", lsp_format = "fallback" },
     javascript = { "prettierd", "prettier", stop_after_first = true },
     typescript = { "prettierd", "prettier", stop_after_first = true },
@@ -17,7 +19,7 @@ require("conform").setup({
     yaml = { "prettierd", "prettier", stop_after_first = true },
     markdown = { "prettierd", "prettier", stop_after_first = true },
   },
-  -- Disabled: synchronous format-on-save blocks the UI while rubocop/prettierd run.
+  -- Disabled: synchronous format-on-save blocks the UI while formatters run.
   -- Format manually with <leader>cs instead.
   format_on_save = false,
 })

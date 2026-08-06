@@ -61,7 +61,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 vim.lsp.enable('ruby_lsp')
-vim.lsp.enable('rubocop')
+-- NOTE: no standalone rubocop server — ruby-lsp's RuboCop addon runs the
+-- project's own rubocop via the composed bundle (correct plugins + versions).
+-- A bundle-less rubocop binary breaks in projects whose .rubocop.yml loads
+-- plugin gems with app dependencies (e.g. rubocop-rails -> activesupport).
 vim.lsp.enable('ember')
 -- Glimmer
 -- NOTE: Overriding cmd to work around upstream bug in nvim-lspconfig
