@@ -16,6 +16,7 @@ These are the configs for my current work setup, managed with [GNU Stow](https:/
 | `hypr` | [Hyprland](https://hyprland.org/) | Wayland compositor config |
 | `omarchy` | [Omarchy](https://omarchy.org/) | Omarchy system customizations |
 | `opencode` | [Opencode](https://github.com/sst/opencode) | AI coding assistant config |
+| `pi` | [pi](https://github.com/earendil-works/pi) | AI coding agent config: settings, kanagawa theme, skills, extensions |
 | `scripts` | — | Helper scripts in `~/.local/bin` |
 
 ## Requirements

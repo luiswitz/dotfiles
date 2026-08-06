@@ -3,3 +3,6 @@ nvim/.config/nvim/lazy-lock.json
 tmux/.tmux
 omarchy/.local/bin/
 !omarchy/.local/bin/omarchy-tmux-theme.sh
+
+# Node dependencies (pi extensions)
+node_modules/
