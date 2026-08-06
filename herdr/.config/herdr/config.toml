@@ -5,11 +5,30 @@
 onboarding = false
 
 [theme]
-# Theme is synced from the Omarchy current theme via:
-#   ~/.local/bin/herdr-omarchy-theme.sh
-# When running outside Omarchy, the fallback below is used.
-name = "catppuccin"
+# Single-palette approach (à la dmmulroy): one colorscheme (kanagawa) applied
+# explicitly per tool. Base theme is herdr's built-in kanagawa; tokens below
+# are exact kanagawa-wave hexes, mirroring nvim and the pi theme.
+name = "kanagawa"
 auto_switch = false
+
+[theme.custom]
+# Kanagawa wave palette overrides.
+accent = "#957FB8"      # oniViolet
+panel_bg = "#1F1F28"    # sumiInk3
+surface0 = "#2A2A37"    # sumiInk4
+surface1 = "#363646"    # sumiInk5
+surface_dim = "#16161D" # sumiInk0
+overlay0 = "#54546D"    # sumiInk6
+overlay1 = "#727169"    # fujiGray
+text = "#DCD7BA"        # fujiWhite
+subtext0 = "#C8C093"    # oldWhite
+mauve = "#957FB8"       # oniViolet
+green = "#98BB6C"       # springGreen
+yellow = "#E6C384"      # carpYellow
+red = "#E46876"         # waveRed
+blue = "#7E9CD8"        # crystalBlue
+teal = "#7AA89F"        # waveAqua2
+peach = "#FFA066"       # surimiOrange
 
 [terminal]
 default_shell = "fish"
@@ -94,7 +113,7 @@ pane_borders = true
 pane_gaps = true
 show_agent_labels_on_pane_borders = true
 agent_panel_sort = "spaces"
-accent = "cyan"
+accent = "#957FB8"
 confirm_close = true
 prompt_new_tab_name = true
 

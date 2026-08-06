@@ -8,6 +8,12 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
+-- Disable built-in LSP document colors (nvim-highlight-colors already renders
+-- swatches); otherwise tailwindcss LSP paints background boxes over class names.
+if vim.lsp.document_color then
+  vim.lsp.document_color.enable(false)
+end
+
 -- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
@@ -71,6 +77,17 @@ vim.lsp.config('glint', {
 })
 vim.lsp.enable('glint')
 vim.lsp.enable('eslint')
+
+-- Silence noisy "class can be written as X" suggestions from tailwindcss
+vim.lsp.config('tailwindcss', {
+  settings = {
+    tailwindCSS = {
+      lint = {
+        suggestCanonicalClasses = "ignore",
+      },
+    },
+  },
+})
 vim.lsp.enable('tailwindcss')
 
 -- HTML

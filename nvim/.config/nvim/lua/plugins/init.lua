@@ -80,14 +80,22 @@ return {
     },
   },
 
-  -- Markdown preview
+  -- Markdown rendering
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {
+      code = {
+        sign = false,
+        width = "block",
+        right_pad = 1,
+      },
+      heading = {
+        sign = false,
+        icons = {},
+      },
     },
+    ft = { "markdown", "norg", "rmd", "org" },
   },
 
   -- Mason
@@ -117,6 +125,55 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {},
+  },
+
+  -- Inline color swatches (hex, rgb, hsl, named colors, Tailwind)
+  {
+    "brenoprata10/nvim-highlight-colors",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      render = "virtual",
+      virtual_symbol = "■",
+      virtual_symbol_position = "inline",
+      enable_hex = true,
+      enable_short_hex = true,
+      enable_rgb = true,
+      enable_hsl = true,
+      enable_var_usage = true,
+      enable_named_colors = true,
+      enable_tailwind = true,
+    },
+  },
+
+  -- Auto close/rename HTML/JSX/glimmer tags
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false,
+      },
+    },
+  },
+
+  -- Symbols outline sidebar
+  {
+    "hedyhli/outline.nvim",
+    cmd = { "Outline" },
+    keys = {
+      { "<leader>o", "<cmd>Outline<cr>", desc = "Toggle Outline" },
+    },
+    opts = {},
+  },
+
+  -- Maximize/restore current split
+  {
+    "szw/vim-maximizer",
+    keys = {
+      { "<F3>", "<cmd>MaximizerToggle<cr>", desc = "Maximize split toggle" },
+    },
   },
 
   -- Tokyonight
