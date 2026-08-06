@@ -26,10 +26,8 @@ return {
   'lewis6991/gitsigns.nvim',
   'sindrets/diffview.nvim',
 
-  -- LSP and completion
+  -- LSP
   'neovim/nvim-lspconfig',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/nvim-cmp',
 
   -- UI enhancements
   "shortcuts/no-neck-pain.nvim",

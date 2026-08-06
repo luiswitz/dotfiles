@@ -10,6 +10,11 @@ require("mason-tool-installer").setup({
     "html-lsp",
     "lua-language-server",
     "typescript-language-server",
+    "css-lsp",
+    "ember-language-server",
+    "pyright",
+    "ruff",
+    "debugpy",
     -- Formatters
     "stylua",
     "prettier",

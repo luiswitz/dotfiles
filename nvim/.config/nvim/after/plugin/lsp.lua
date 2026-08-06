@@ -17,13 +17,13 @@ end
 -- Reserve a space in the gutter
 vim.opt.signcolumn = 'yes'
 
--- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- Add blink.cmp capabilities to lspconfig
 -- This should be executed before you configure any language server
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   'force',
   lspconfig_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
+  require('blink.cmp').get_lsp_capabilities()
 )
 
 -- This is where you enable features that only work
@@ -110,6 +110,9 @@ vim.lsp.config('html', {
 })
 vim.lsp.enable('html')
 
+-- CSS (installed via mason as css-lsp)
+vim.lsp.enable('cssls')
+
 vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
@@ -131,34 +134,29 @@ vim.lsp.config('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
+-- Python
+vim.lsp.config('ruff', {
+  on_attach = function(client)
+    -- Disable hover in favor of pyright
+    client.server_capabilities.hoverProvider = false
+  end,
+})
+vim.lsp.enable('ruff')
+
+vim.lsp.config('pyright', {
+  settings = {
+    python = {
+      analysis = {
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = 'openFilesOnly',
+      },
+    },
+  },
+})
+vim.lsp.enable('pyright')
+
 vim.lsp.enable('stimulus_ls')
 vim.lsp.enable('ts_ls')
 
-local cmp = require('cmp')
-
-cmp.setup({
-  sources = {
-    { name = 'nvim_lsp' },
-  },
-  snippet = {
-    expand = function(args)
-      vim.snippet.expand(args.body)
-    end,
-  },
-  completion = {
-    autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
-    keyword_length = 2,
-  },
-  performance = {
-    debounce = 60,
-    throttle = 30,
-    fetching_timeout = 200,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-  }),
-})
