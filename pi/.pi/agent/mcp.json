@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "semble": {
+      "command": "uvx",
+      "args": ["--from", "semble[mcp]", "semble"]
+    }
+  },
+  "mcp": {
+    "toolMode": "proxy",
+    "startup": "lazy",
+    "servers": {
+      "semble": {
+        "type": "local",
+        "command": ["uvx", "--from", "semble[mcp]", "semble"],
+        "enabled": true
+      }
+    }
+  }
+}

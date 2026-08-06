@@ -1,0 +1,3 @@
+# settings.json is machine-specific (like dmmulroy's dotfiles) — keep it an
+# unmanaged local file, never stow or commit it.
+settings\.json
