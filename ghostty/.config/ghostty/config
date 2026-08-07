@@ -1,3 +1,7 @@
+# Theme
+# Kanagawa Wave, matching herdr/nvim/pi. Ghostty builtin theme.
+theme = Kanagawa Wave
+
 # Font
 font-family = "CaskaydiaMono Nerd Font"
 font-size = 16.5
