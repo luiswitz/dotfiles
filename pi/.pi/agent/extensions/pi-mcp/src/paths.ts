@@ -18,6 +18,12 @@ export function getAuthStorePath(): string {
   return join(getAgentDir(), "mcp-auth.json");
 }
 
+/** Optional explicit project config, useful for workspace launchers serving nested repos. */
+export function getExplicitProjectConfigPath(): string | undefined {
+  const configured = process.env.PI_MCP_PROJECT_CONFIG?.trim();
+  return configured ? expandHome(configured) : undefined;
+}
+
 function expandHome(input: string): string {
   if (input === "~") return homedir();
   if (input.startsWith("~/")) return join(homedir(), input.slice(2));

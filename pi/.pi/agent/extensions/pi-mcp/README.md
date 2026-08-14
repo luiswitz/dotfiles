@@ -36,7 +36,10 @@ Reload pi with `/reload`.
 ## Config
 
 `~/.pi/agent/mcp.json` (global), with an optional project override at
-`.pi/mcp.json` (trusted projects only; per-server shallow merge):
+`.pi/mcp.json` (trusted projects only; per-server shallow merge). Workspace
+launchers can set `PI_MCP_PROJECT_CONFIG` to an explicit project config path;
+this takes precedence over `<cwd>/.pi/mcp.json` and lets nested repositories
+share one workspace-level server catalog:
 
 ```jsonc
 {

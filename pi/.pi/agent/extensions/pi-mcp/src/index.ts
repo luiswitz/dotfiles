@@ -1,6 +1,6 @@
 import type { ExtensionAPI, ExtensionCommandContext, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import { CONFIG_DIR_NAME } from "@earendil-works/pi-coding-agent";
-import { getAuthStorePath, getGlobalConfigPath } from "./paths.ts";
+import { getAuthStorePath, getExplicitProjectConfigPath, getGlobalConfigPath } from "./paths.ts";
 import { getProjectConfigPath, loadConfig, type McpConfig } from "./config.ts";
 import { AuthStore } from "./auth-store.ts";
 import { McpManager, describeStatus } from "./manager.ts";
@@ -36,7 +36,9 @@ export default async function (pi: ExtensionAPI) {
   registerProxyTool(pi, getManager);
 
   pi.on("session_start", async (_event, ctx) => {
-    const projectPath = ctx.isProjectTrusted() ? getProjectConfigPath(ctx.cwd, CONFIG_DIR_NAME) : undefined;
+    const projectPath = ctx.isProjectTrusted()
+      ? getExplicitProjectConfigPath() ?? getProjectConfigPath(ctx.cwd, CONFIG_DIR_NAME)
+      : undefined;
     const loaded = await loadConfig(globalPath, projectPath);
     config = loaded.config;
 

@@ -13,6 +13,12 @@
         "type": "local",
         "command": ["uvx", "--from", "semble[mcp]", "semble"],
         "enabled": true
+      },
+      "notion": {
+        "type": "remote",
+        "url": "https://mcp.notion.com/mcp",
+        "oauth": {},
+        "enabled": true
       }
     }
   }
