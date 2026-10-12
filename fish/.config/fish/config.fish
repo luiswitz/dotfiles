@@ -52,6 +52,6 @@ if not type -q chruby_auto
 end
 
 if type -q chruby
-    chruby 3.3.5
+    chruby 4.0.7
 end
 
