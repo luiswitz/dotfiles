@@ -67,14 +67,31 @@ vim.lsp.enable('ruby_lsp')
 -- plugin gems with app dependencies (e.g. rubocop-rails -> activesupport).
 vim.lsp.enable('ember')
 -- Glimmer
--- NOTE: Overriding cmd to work around upstream bug in nvim-lspconfig
--- where glint.lua's cmd function signature doesn't match vim.lsp.Config
--- See: https://github.com/neovim/nvim-lspconfig/issues/3960
+-- Use the project's Glint installation so the language server and its
+-- template-imports environment always come from the same dependency tree.
+-- Preload the upstream multi-byte location fix for Glint 1.5.2; the preload is
+-- version-gated and becomes a no-op after the project upgrades.
 vim.lsp.config('glint', {
-  cmd = { 'glint-language-server' },
+  cmd = function(dispatchers, config)
+    local cmd = 'glint-language-server'
+    if config.root_dir then
+      local local_cmd = vim.fs.joinpath(config.root_dir, 'node_modules/.bin', cmd)
+      if vim.fn.executable(local_cmd) == 1 then
+        cmd = local_cmd
+      end
+    end
+
+    local patch = vim.fs.joinpath(vim.fn.stdpath('config'), 'scripts', 'glint-1.5.2-preprocess-fix.cjs')
+    local node_options = '--require=' .. patch
+    if vim.env.NODE_OPTIONS and vim.env.NODE_OPTIONS ~= '' then
+      node_options = node_options .. ' ' .. vim.env.NODE_OPTIONS
+    end
+
+    return vim.lsp.rpc.start({ 'env', 'NODE_OPTIONS=' .. node_options, cmd }, dispatchers)
+  end,
   init_options = {
     glint = {
-      useGlobal = true,
+      useGlobal = false,
     },
   },
 })

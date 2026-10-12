@@ -117,6 +117,7 @@ accent = "#957FB8"
 confirm_close = true
 prompt_new_tab_name = true
 
+status_indicators = "symbols"
 [ui.toast]
 delivery = "off"
 
